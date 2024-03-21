@@ -7,6 +7,14 @@ package Entidades;public class Ingrediente {
         this.cantidad=cantidad;
     }
 
+    public void sacar(int cantidadARetirar) {
+        if (this.cantidad >= cantidadARetirar) {
+            this.cantidad -= cantidadARetirar;
+            System.out.println("Se retiraron " + cantidadARetirar + " " + nombre + ", quedan " + this.cantidad);
+        } else {
+            System.out.println("No es posible sacar " + cantidadARetirar + " " + nombre + ", quedan " + this.cantidad);
+        }
+    }
     public String getNombre() {
         return nombre;
     }
@@ -24,6 +32,6 @@ package Entidades;public class Ingrediente {
     }
 
     public String toString() {
-        return "Quedan " + cantidad + " " + nombre + "s";
+        return "Quedan " + cantidad + " " + nombre;
     }
 }
