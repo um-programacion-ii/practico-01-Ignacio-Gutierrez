@@ -1,16 +1,18 @@
-import Entidades.Despensa;
-import Entidades.Ingrediente;
-
+import Entidades.*;
 public class Main {
     public static void main(String[] args) {
 
         Despensa despensa = new Despensa();
 
         despensa.addIngrediente(new Ingrediente("Huevo",12));
-        despensa.addIngrediente(new Ingrediente("Tomate",10));
         despensa.addIngrediente(new Ingrediente("Ternera",8));
         despensa.addIngrediente(new Ingrediente("Arroz",5000));
-        despensa.addIngrediente(new Ingrediente("Aceite",10));
+        despensa.addIngrediente(new Ingrediente("Leche",2000));
+        despensa.addIngrediente(new Ingrediente("Canela",10));
+        despensa.addIngrediente(new Ingrediente("Azucar",2000));
+        despensa.addIngrediente(new Ingrediente("Aceite",1500));
+        despensa.addIngrediente(new Ingrediente("Papa",10));
+        despensa.addIngrediente(new Ingrediente("Agua",10000));
 
         System.out.println("Primer abastecimiento de la despensa");
         despensa.mostrarIngredientes();
@@ -31,5 +33,15 @@ public class Main {
         despensa.addIngrediente(new Ingrediente("Fideos", 1000));
 
         despensa.mostrarIngredientes();
+
+        System.out.println("\nRecetas :\n-Huevo Duro");
+        HuevoDuro huevoDuroReceta = new HuevoDuro();
+        huevoDuroReceta.mostrarReceta();
+        System.out.println("\n-Arroz con Leche");
+        ArrozConLeche arrozConLeche = new ArrozConLeche();
+        arrozConLeche.mostrarReceta();
+        System.out.println("\n-Ternera al Horno");
+        TerneraAlHorno terneraAlHorno = new TerneraAlHorno();
+        terneraAlHorno.mostrarReceta();
     }
 }
