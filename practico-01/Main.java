@@ -1,47 +1,46 @@
 import Entidades.*;
+import Servicios.CocinaService;
 public class Main {
     public static void main(String[] args) {
 
         Despensa despensa = new Despensa();
 
-        despensa.addIngrediente(new Ingrediente("Huevo",12));
-        despensa.addIngrediente(new Ingrediente("Ternera",8));
-        despensa.addIngrediente(new Ingrediente("Arroz",5000));
-        despensa.addIngrediente(new Ingrediente("Leche",2000));
-        despensa.addIngrediente(new Ingrediente("Canela",10));
-        despensa.addIngrediente(new Ingrediente("Azucar",2000));
-        despensa.addIngrediente(new Ingrediente("Aceite",1500));
-        despensa.addIngrediente(new Ingrediente("Papa",10));
-        despensa.addIngrediente(new Ingrediente("Agua",10000));
+        Chef chef = new Chef("Francisco Mallmann", 0, despensa);
 
-        System.out.println("Primer abastecimiento de la despensa");
-        despensa.mostrarIngredientes();
+        despensa.addIngrediente(new Ingrediente("Arroz",5000));  //Arroz con leche
+        despensa.addIngrediente(new Ingrediente("Leche",2000));  //Arroz con leche
+        despensa.addIngrediente(new Ingrediente("Canela",10));   //Arroz con leche
+        despensa.addIngrediente(new Ingrediente("Azucar",500)); //Arroz con leche
 
-        System.out.println("\nIntentando retirar ingredientes:");
-        despensa.getIngrediente("Huevo", 6);
-        despensa.getIngrediente("Tomate", 5);
-        despensa.getIngrediente("Ternera", 8);
-        despensa.getIngrediente("Arroz", 7000);
+        despensa.addIngrediente(new Ingrediente("Huevo",12));   //Huevo duro
+        //despensa.addIngrediente(new Ingrediente("Agua",10000)); //Huevo duro
 
-        System.out.println("\nEstado despensa:");
-        despensa.mostrarIngredientes();
+        despensa.addIngrediente(new Ingrediente("Ternera",8)); //Ternera al horno
+        despensa.addIngrediente(new Ingrediente("Papa",3));   //Ternera al horno
 
-        System.out.println("\nIntentando abastecer ingredientes:");
-        despensa.addIngrediente(new Ingrediente("Huevo", 7));
-        despensa.addIngrediente(new Ingrediente("Tomate", 6));
-        despensa.addIngrediente(new Ingrediente("Ternera", 2));
-        despensa.addIngrediente(new Ingrediente("Fideos", 1000));
+        //System.out.println("\nPrimer abastecimiento de la despensa");
+        //despensa.mostrarIngredientes();
 
-        despensa.mostrarIngredientes();
+        CocinaService cocinaService = new CocinaService();
 
-        System.out.println("\nRecetas :\n-Huevo Duro");
-        HuevoDuro huevoDuroReceta = new HuevoDuro();
-        huevoDuroReceta.mostrarReceta();
-        System.out.println("\n-Arroz con Leche");
-        ArrozConLeche arrozConLeche = new ArrozConLeche();
-        arrozConLeche.mostrarReceta();
-        System.out.println("\n-Ternera al Horno");
-        TerneraAlHorno terneraAlHorno = new TerneraAlHorno();
-        terneraAlHorno.mostrarReceta();
+        System.out.println("\nArroz con Leche:");
+        chef.prepararReceta(1, cocinaService);
+        System.out.println("\nHuevo Duro:");
+        chef.prepararReceta(2, cocinaService);
+        System.out.println("\nTernera al Horno:");
+        chef.prepararReceta(3, cocinaService);
+        System.out.println("\nNada:");
+        chef.prepararReceta(4, cocinaService);
+
+
+        //System.out.println("\nRetirar ingredientes:");
+        //despensa.getIngrediente("Huevo", 11);
+        //despensa.getIngrediente("Ternera", 7);
+        //despensa.getIngrediente("Arroz", 4999);
+
+        //System.out.println("\nEstado despensa:");
+        //despensa.mostrarIngredientes();
+
+
     }
 }

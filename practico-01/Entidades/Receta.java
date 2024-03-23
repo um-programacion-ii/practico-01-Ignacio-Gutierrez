@@ -11,13 +11,37 @@ public class Receta {
         this.preparacion = preparacion;
     }
 
+    public int getTiempoCoccion() {
+        return tiempoCoccion;
+    }
+
+    public void setTiempoCoccion(int tiempoCoccion) {
+        this.tiempoCoccion = tiempoCoccion;
+    }
+
+    public Ingrediente[] getIngredientes() {
+        return ingredientes;
+    }
+
+    public void setIngredientes(Ingrediente[] ingredientes) {
+        this.ingredientes = ingredientes;
+    }
+
+    public String getPreparacion() {
+        return preparacion;
+    }
+
+    public void setPreparacion(String preparacion) {
+        this.preparacion = preparacion;
+    }
+
     public void mostrarReceta() {
         System.out.println("Tiempo de cocción: " + tiempoCoccion + " minutos");
         System.out.println("Ingredientes:");
         for (Ingrediente ingrediente : ingredientes) {
             System.out.println(ingrediente.getNombre() + ": " + ingrediente.getCantidad());
         }
-        System.out.println("Preparación: " + preparacion);
+        System.out.println("\nPreparación: " + preparacion);
     }
 }
 

@@ -25,16 +25,19 @@ public class Despensa {
     }
 
     public void getIngrediente(String nombre, int cantidad) {
-        boolean encontrado = false;
+        Ingrediente ingredienteEncontrado = null;
         for (Ingrediente ingrediente : ingredientes) {
-            if (ingrediente.getNombre().equals(nombre) && ingrediente.getCantidad() > cantidad) {
-                ingrediente.sacar(cantidad);
-                encontrado = true;
+            if (ingrediente.getNombre().equals(nombre)) {
+                ingredienteEncontrado = ingrediente;
                 break;
             }
         }
-        if (!encontrado) {
-            System.out.println("No es posible retirar " + cantidad + " de " + nombre + " de la despensa.");
+        if (ingredienteEncontrado != null && ingredienteEncontrado.getCantidad() >= cantidad) {
+            ingredienteEncontrado.sacar(cantidad);
+        } else if (ingredienteEncontrado != null) {
+            System.out.println("Solo quedan " + ingredienteEncontrado.getCantidad() + " de " + nombre + " en la despensa (Llenar despensa).");
+        } else {
+            System.out.println("No hay " + nombre + " en la despensa.");
         }
     }
 
@@ -44,5 +47,21 @@ public class Despensa {
             System.out.println(ingrediente.getNombre() + ": " + ingrediente.getCantidad());
         }
     }
+
+    public boolean verificarIngrediente(String nombre, int cantidad) {
+        for (Ingrediente ingrediente : ingredientes) {
+            if (ingrediente.getNombre().equals(nombre)) {
+                if (ingrediente.getCantidad() >= cantidad) {
+                    return true;
+                } else {
+                    System.out.println("No hay suficiente " + nombre + " en la despensa, quedan "+ ingrediente.getCantidad() + ".");
+                    return false;
+                }
+            }
+        }
+        System.out.println("No hay " + nombre + " en la despensa.");
+        return false;
+    }
+
 
 }

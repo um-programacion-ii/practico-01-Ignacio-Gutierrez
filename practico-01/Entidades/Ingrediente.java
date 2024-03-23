@@ -10,9 +10,9 @@ package Entidades;public class Ingrediente {
     public void sacar(int cantidadARetirar) {
         if (this.cantidad >= cantidadARetirar) {
             this.cantidad -= cantidadARetirar;
-            System.out.println("Se retiraron " + cantidadARetirar + " " + nombre + ", quedan " + this.cantidad);
+            System.out.println("Se retiró " + cantidadARetirar + " de " + nombre + ", quedan " + this.cantidad);
         } else {
-            System.out.println("No es posible sacar " + cantidadARetirar + " " + nombre + ", quedan " + this.cantidad);
+            System.out.println("No es posible retirar " + cantidadARetirar + " de " + nombre + ", quedan " + this.cantidad);
         }
     }
     public String getNombre() {
@@ -32,6 +32,6 @@ package Entidades;public class Ingrediente {
     }
 
     public String toString() {
-        return "Quedan " + cantidad + " " + nombre;
+        return "Quedan " + cantidad + " de " + nombre;
     }
 }
